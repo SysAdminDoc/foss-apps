@@ -1,13 +1,15 @@
 #!/usr/bin/env python3
 import requests, sys, json, pathlib, bisect, math
 
+ENCODING = "utf-8"
+
 root = pathlib.Path(__file__).parent.parent.resolve()
 category_sources = list(filter(lambda f: f.suffix == ".json", pathlib.Path.iterdir(root/"apps")))
 category_names = [c.stem for c in category_sources]
 emojis = []
 sources = []
 for c in category_sources:
-    json_c = json.load(c.open("r"))
+    json_c = json.load(c.open("r", encoding=ENCODING))
     emojis.append(json_c.get("emoji"))
     for a in json_c.get("apps"):
         sources.append(a.get("source"))
@@ -70,8 +72,8 @@ def new_category():
 
     # create new category json file
     title = " ".join(x.title() if x != "and" else "and" for x in name.split("-"))
-    with open(root/"apps"/f"{name}.json", "w") as f:
-        json.dump({"title": title, "emoji": emoji, "apps": []}, f, indent=4)
+    with open(root/"apps"/f"{name}.json", "w", encoding=ENCODING) as f:
+        json.dump({"title": title, "emoji": emoji, "apps": []}, f, indent=4, ensure_ascii=False)
 
 
 def new_app():
@@ -115,11 +117,11 @@ def new_app():
                 exit_with_error("this field is required.")
                 
     # insert in app list for given category in alphabetical order
-    with open(root/"apps"/(category+".json"), "r") as f:
+    with open(root/"apps"/(category+".json"), "r", encoding=ENCODING) as f:
         json_c = json.load(f)
     bisect.insort(json_c["apps"], new_app, key=lambda x: x.get("name").lower())
-    with open(root/"apps"/(category+".json"), "w") as f:
-        json.dump(json_c, f, indent=4)
+    with open(root/"apps"/(category+".json"), "w", encoding=ENCODING) as f:
+        json.dump(json_c, f, indent=4, ensure_ascii=False)
 
 try:
     cmd = int(input("[0] new app\t[1] new category\n> "))

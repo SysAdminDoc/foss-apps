@@ -1,0 +1,21 @@
+# Local operating notes and roadmap state
+*.md
+!README.md
+!CHANGELOG.md
+.claude/
+
+# Python
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.venv/
+venv/
+
+# Local environment and editor files
+.env
+.env.*
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+

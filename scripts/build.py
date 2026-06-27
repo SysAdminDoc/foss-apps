@@ -1,6 +1,9 @@
 import functools, json, pathlib, re
 
 
+ENCODING = "utf-8"
+
+
 def parse_categories():
     cats = list(filter(lambda f: f.suffix == ".json", pathlib.Path.iterdir(json_dir)))
 
@@ -17,7 +20,7 @@ def replace_chunk(content, marker, chunk):
 def count_apps():
     count = 0
     for cat in categories:
-        with cat.open("r") as f:
+        with cat.open("r", encoding=ENCODING) as f:
             cat_json = json.load(f)
             count += len(cat_json.get("apps"))
 
@@ -25,11 +28,11 @@ def count_apps():
 
 
 def build_category(cat):
-    with cat.open("r") as f:
+    with cat.open("r", encoding=ENCODING) as f:
         cat_json = json.load(f)
 
     md_file = categories_dir / (cat.stem + ".md")
-    with md_file.open("w") as f:
+    with md_file.open("w", encoding=ENCODING) as f:
         lines = [
             f'# {cat_json.get("emoji")} {cat_json.get("title")}',
             "[`< go back home`](../README.md)",
@@ -44,7 +47,7 @@ def build_category(cat):
             website = app.get("website")
 
             m = re.match(
-                "https:\/\/(gitlab|github)\.com/([a-zA-Z0-9\-\_\.]+)/([a-zA-Z0-9\-\_\.]+)",
+                r"https://(gitlab|github)\.com/([a-zA-Z0-9\-_.]+)/([a-zA-Z0-9\-_.]+)",
                 source,
             )
             if m == None:
@@ -80,7 +83,7 @@ def build_category(cat):
 
 
 def build_readme():
-    readme_contents = (root / "README.md").open("r").read()
+    readme_contents = (root / "README.md").read_text(encoding=ENCODING)
 
     app_count_md = f'<img src="https://img.shields.io/badge/{n_apps}-apps-red?style=for-the-badge" alt="App count"/>'
     readme_contents = replace_chunk(readme_contents, "apps-count", app_count_md)
@@ -90,7 +93,7 @@ def build_readme():
 
     toc_lines = [""]
     for category in sorted_categories:
-        with category.open("r") as f:
+        with category.open("r", encoding=ENCODING) as f:
             json_cat = json.load(f)
             title = json_cat.get("title")
             emoji = json_cat.get("emoji")
@@ -100,7 +103,7 @@ def build_readme():
         readme_contents, "table-of-contents", "\n".join(toc_lines)
     )
 
-    (root / "README.md").open("w").write(readme_contents)
+    (root / "README.md").write_text(readme_contents, encoding=ENCODING)
 
 
 if __name__ == "__main__":
