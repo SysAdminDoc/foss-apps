@@ -21,6 +21,8 @@ _I'm not affiliated with these apps, I'm just sharing them because I think they'
 
 **[`SEARCH THE CATALOG`](catalog.html 'SEARCH THE CATALOG')**
 
+**[`CATALOG JSON`](catalog.json 'CATALOG JSON')**
+
 **[`Acknowledgments`](#acknowledgments 'Acknowledgments')**
 
 ## Maintainer Checks
@@ -37,6 +39,7 @@ py -3 scripts/check_links.py --timeout 10
 Validation fails on invalid JSON, missing required fields, duplicate source URLs, unsorted app names, invalid URLs, and generated output drift.
 The link checker reports hard failures with a non-zero exit code and lists rate limits separately.
 Generated `categories/*.md` pages are rebuilt from `apps/*.json`; do not edit those pages directly.
+`catalog.json` is the generated machine-readable export for scripts and audits.
 
 ## Table of Contents
 

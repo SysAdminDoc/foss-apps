@@ -61,6 +61,8 @@ class BuildGeneratorTests(unittest.TestCase):
                     "name": "Alpha",
                     "description": "First app.",
                     "source": "https://github.com/example/alpha",
+                    "fdroid": "https://f-droid.org/packages/org.example.alpha",
+                    "last_reviewed": "2026-06-28",
                 },
                 {
                     "name": "Beta",
@@ -79,6 +81,24 @@ class BuildGeneratorTests(unittest.TestCase):
         self.assertLess(rendered.index("🌐 Alpha"), rendered.index("🧪 Zeta"))
         self.assertNotIn("old count", rendered)
         self.assertNotIn("old toc", rendered)
+
+        export = json.loads(build.render_export(self.root, categories))
+        self.assertEqual(export["schema_version"], 1)
+        self.assertEqual(export["generated_at"], "2026-06-28T00:00:00Z")
+        self.assertEqual(export["source_urls"]["repository"], "https://github.com/SysAdminDoc/foss-apps")
+        self.assertEqual(export["category_count"], 2)
+        self.assertEqual(export["app_count"], 3)
+        self.assertEqual(export["categories"][0]["slug"], "alpha")
+        self.assertEqual(export["categories"][0]["source_file"], "apps/alpha.json")
+        self.assertEqual(export["apps"][0]["name"], "Alpha")
+        self.assertEqual(
+            export["apps"][0]["install_urls"]["fdroid"],
+            "https://f-droid.org/packages/org.example.alpha",
+        )
+        self.assertEqual(
+            export["apps"][0]["source_urls"]["source"],
+            "https://github.com/example/alpha",
+        )
 
     def test_badge_links_for_supported_hosts_and_fallbacks(self):
         self.assertEqual(

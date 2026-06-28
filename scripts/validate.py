@@ -201,6 +201,13 @@ def validate_generated_output(root, categories):
     elif catalog.read_text(encoding=ENCODING) != expected_catalog:
         errors.append("catalog.html: generated content drift; run py -3 scripts/build.py")
 
+    export = root / "catalog.json"
+    expected_export = build.render_export(root, categories)
+    if not export.exists():
+        errors.append("catalog.json: generated export file is missing")
+    elif export.read_text(encoding=ENCODING) != expected_export:
+        errors.append("catalog.json: generated content drift; run py -3 scripts/build.py")
+
     categories_dir = root / "categories"
     for category in categories:
         md_file = categories_dir / f"{category.stem}.md"

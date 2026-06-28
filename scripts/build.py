@@ -16,6 +16,8 @@ INSTALL_SOURCE_FIELDS = (
     ("playstore", "Play Store"),
     ("website", "Website"),
 )
+EXPORT_SCHEMA_VERSION = 1
+EXPORT_REPOSITORY_URL = "https://github.com/SysAdminDoc/foss-apps"
 
 CATALOG_TEMPLATE = """<!doctype html>
 <html lang="en">
@@ -540,42 +542,104 @@ def maintenance_label(status):
     return labels.get(status or "unknown", status or "Unknown")
 
 
-def normalized_catalog(categories):
+def install_url_map(app):
+    return {field: app.get(field) for field, _label in INSTALL_SOURCE_FIELDS if app.get(field)}
+
+
+def normalized_app_record(app, category_title, category_slug):
+    install_sources = [label for field, label in INSTALL_SOURCE_FIELDS if app.get(field)]
+    return {
+        "name": app.get("name"),
+        "description": app.get("description"),
+        "category": category_title,
+        "category_slug": category_slug,
+        "source": app.get("source"),
+        "source_host": source_host(app),
+        "install_sources": install_sources,
+        "install_urls": install_url_map(app),
+        "maintenance_status": app.get("maintenance_status", "unknown"),
+        "maintenance_status_label": maintenance_label(
+            app.get("maintenance_status", "unknown")
+        ),
+        "package": app.get("package", ""),
+        "license": app.get("license", ""),
+        "fdroid_package": app.get("fdroid_package", ""),
+        "izzyondroid_package": app.get("izzyondroid_package", ""),
+        "anti_features": app.get("anti_features", []),
+        "successor": app.get("successor", ""),
+        "target_sdk": app.get("target_sdk", ""),
+        "update_source": app.get("update_source", ""),
+        "signing_provenance": app.get("signing_provenance", ""),
+        "source_provenance": app.get("source_provenance", ""),
+        "sideload_caveats": app.get("sideload_caveats", ""),
+        "last_reviewed": app.get("last_reviewed", ""),
+        "source_urls": {
+            "source": app.get("source"),
+            **install_url_map(app),
+        },
+    }
+
+
+def normalized_category_records(categories):
     records = []
     for category in categories:
         category_json = load_category(category)
-        category_title = category_json.get("title")
-        for app in category_json.get("apps", []):
-            install_sources = [
-                label for field, label in INSTALL_SOURCE_FIELDS if app.get(field)
-            ]
-            records.append(
-                {
-                    "name": app.get("name"),
-                    "description": app.get("description"),
-                    "category": category_title,
-                    "category_slug": category.stem,
-                    "source": app.get("source"),
-                    "source_host": source_host(app),
-                    "install_sources": install_sources,
-                    "maintenance_status": app.get("maintenance_status", "unknown"),
-                    "maintenance_status_label": maintenance_label(
-                        app.get("maintenance_status", "unknown")
-                    ),
-                    "package": app.get("package", ""),
-                    "license": app.get("license", ""),
-                    "fdroid_package": app.get("fdroid_package", ""),
-                    "izzyondroid_package": app.get("izzyondroid_package", ""),
-                    "anti_features": app.get("anti_features", []),
-                    "successor": app.get("successor", ""),
-                    "target_sdk": app.get("target_sdk", ""),
-                    "update_source": app.get("update_source", ""),
-                    "signing_provenance": app.get("signing_provenance", ""),
-                    "source_provenance": app.get("source_provenance", ""),
-                    "sideload_caveats": app.get("sideload_caveats", ""),
-                }
-            )
+        apps = [
+            normalized_app_record(app, category_json.get("title"), category.stem)
+            for app in category_json.get("apps", [])
+        ]
+        records.append(
+            {
+                "slug": category.stem,
+                "title": category_json.get("title"),
+                "emoji": category_json.get("emoji"),
+                "source_file": f"apps/{category.name}",
+                "app_count": len(apps),
+                "apps": apps,
+            }
+        )
     return records
+
+
+def normalized_catalog(categories):
+    records = []
+    for category in normalized_category_records(categories):
+        records.extend(category["apps"])
+    return records
+
+
+def generated_timestamp(categories):
+    dates = []
+    for category in categories:
+        category_json = load_category(category)
+        for app in category_json.get("apps", []):
+            if app.get("last_reviewed"):
+                dates.append(app.get("last_reviewed"))
+    if not dates:
+        return "1970-01-01T00:00:00Z"
+    return f"{max(dates)}T00:00:00Z"
+
+
+def normalized_export(root, categories):
+    category_records = normalized_category_records(categories)
+    app_records = [app for category in category_records for app in category["apps"]]
+    return {
+        "schema_version": EXPORT_SCHEMA_VERSION,
+        "generated_at": generated_timestamp(categories),
+        "source_urls": {
+            "repository": EXPORT_REPOSITORY_URL,
+            "apps": f"{EXPORT_REPOSITORY_URL}/tree/main/apps",
+        },
+        "category_count": len(category_records),
+        "app_count": len(app_records),
+        "categories": category_records,
+        "apps": app_records,
+    }
+
+
+def render_export(root, categories):
+    payload = normalized_export(root, categories)
+    return json.dumps(payload, ensure_ascii=False, indent=2, sort_keys=True) + "\n"
 
 
 def render_catalog(root, categories):
@@ -591,6 +655,10 @@ def build_catalog(root, categories):
     (root / "catalog.html").write_text(render_catalog(root, categories), encoding=ENCODING)
 
 
+def build_export(root, categories):
+    (root / "catalog.json").write_text(render_export(root, categories), encoding=ENCODING)
+
+
 def main():
     root = pathlib.Path(__file__).parent.parent.resolve()
     json_dir = root / "apps"
@@ -602,6 +670,7 @@ def main():
     categories = parse_categories(json_dir)
     build_readme(root, categories)
     build_catalog(root, categories)
+    build_export(root, categories)
     for category in categories:
         build_category(category, categories_dir)
 

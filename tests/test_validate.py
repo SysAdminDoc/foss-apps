@@ -39,6 +39,7 @@ class ValidateCatalogTests(unittest.TestCase):
         categories = build.parse_categories(self.tmp / "apps")
         build.build_readme(self.tmp, categories)
         build.build_catalog(self.tmp, categories)
+        build.build_export(self.tmp, categories)
         for category in categories:
             build.build_category(category, self.tmp / "categories")
 
