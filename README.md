@@ -28,6 +28,7 @@ _I'm not affiliated with these apps, I'm just sharing them because I think they'
 After editing `apps/*.json`, run:
 
 ```sh
+py -3 -m unittest discover -s tests
 py -3 scripts/validate.py
 py -3 scripts/build.py
 py -3 scripts/check_links.py --timeout 10

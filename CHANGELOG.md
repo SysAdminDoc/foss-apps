@@ -2,6 +2,7 @@
 
 ## Unreleased
 
+- Added generator regression tests for app counts, category ordering, badge URLs, UTF-8 README output, and marker replacement.
 - Improved generated category page accessibility with app headings, descriptive badge alt text, and cleaner mobile-friendly link blocks.
 - Added a local link-health and badge-health report command.
 - Added a generated searchable catalog page with category, install-source, source-host, and sort controls.
