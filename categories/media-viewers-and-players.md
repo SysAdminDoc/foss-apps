@@ -7,12 +7,6 @@
 
     [`[source]`](https://gitlab.com/axet/android-book-reader "source") [`[f-droid]`](https://f-droid.org/packages/com.github.axet.bookreader "f-droid") [`[playstore]`](https://play.google.com/store/apps/details?id=com.github.axet.bookreader "playstore") 
 
-- **Librera Reader**: An e-book reader for Android devices; it supports the following formats: PDF, EPUB, EPUB3, MOBI, DjVu, FB2, TXT, RTF, AZW, AZW3, HTML, CBZ, CBR, DOC, DOCX, and OPDS Catalogs.
-
-    ![Stars](https://badgen.net/github/stars/foobnix/LibreraReader) ![last commit](https://img.shields.io/github/last-commit/foobnix/LibreraReader)
-
-    [`[source]`](https://github.com/foobnix/LibreraReader "source") [`[f-droid]`](https://f-droid.org/packages/com.foobnix.pro.pdf.reader "f-droid") [`[playstore]`](https://play.google.com/store/apps/details?id=com.foobnix.pro.pdf.reader "playstore") [`[website]`](https://librera.mobi "website")
-
 - **Just (Video) Player**: A simple and lightweight, yet polished and powerful Android video player based on ExoPlayer, compatible with Android 5+ and Android TV.
 
     ![Stars](https://badgen.net/github/stars/moneytoo/Player) ![last commit](https://img.shields.io/github/last-commit/moneytoo/Player)
@@ -24,6 +18,12 @@
     ![Stars](https://badgen.net/github/stars/UnevenSoftware/LeafPic) ![last commit](https://img.shields.io/github/last-commit/UnevenSoftware/LeafPic)
 
     [`[source]`](https://github.com/UnevenSoftware/LeafPic "source") [`[f-droid]`](https://f-droid.org/app/org.horaapps.leafpic "f-droid") [`[playstore]`](https://play.google.com/store/apps/details?id=org.horaapps.leafpic "playstore") 
+
+- **Librera Reader**: An e-book reader for Android devices; it supports the following formats: PDF, EPUB, EPUB3, MOBI, DjVu, FB2, TXT, RTF, AZW, AZW3, HTML, CBZ, CBR, DOC, DOCX, and OPDS Catalogs.
+
+    ![Stars](https://badgen.net/github/stars/foobnix/LibreraReader) ![last commit](https://img.shields.io/github/last-commit/foobnix/LibreraReader)
+
+    [`[source]`](https://github.com/foobnix/LibreraReader "source") [`[f-droid]`](https://f-droid.org/packages/com.foobnix.pro.pdf.reader "f-droid") [`[playstore]`](https://play.google.com/store/apps/details?id=com.foobnix.pro.pdf.reader "playstore") [`[website]`](https://librera.mobi "website")
 
 - **MPV**: A video player for Android based on libmpv. It features hardware and software video decoding, gesture-based seeking and volume/brightness control, libass support for styled subtitles, and url streaming.
 

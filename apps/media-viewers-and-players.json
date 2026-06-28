@@ -10,14 +10,6 @@
       "playstore": "https://play.google.com/store/apps/details?id=com.github.axet.bookreader"
     },
     {
-      "name": "Librera Reader",
-      "description": "An e-book reader for Android devices; it supports the following formats: PDF, EPUB, EPUB3, MOBI, DjVu, FB2, TXT, RTF, AZW, AZW3, HTML, CBZ, CBR, DOC, DOCX, and OPDS Catalogs.",
-      "source": "https://github.com/foobnix/LibreraReader",
-      "fdroid": "https://f-droid.org/packages/com.foobnix.pro.pdf.reader",
-      "playstore": "https://play.google.com/store/apps/details?id=com.foobnix.pro.pdf.reader",
-      "website": "https://librera.mobi"
-    },
-    {
       "name": "Just (Video) Player",
       "description": "A simple and lightweight, yet polished and powerful Android video player based on ExoPlayer, compatible with Android 5+ and Android TV.",
       "source": "https://github.com/moneytoo/Player",
@@ -30,6 +22,14 @@
       "description": "A fluid, material-designed alternative gallery, it also is ad-free and open source under GPLv3 license. It doesn't miss any of the main features of a stock gallery. NO LONGER MAINTAINED.",
       "fdroid": "https://f-droid.org/app/org.horaapps.leafpic",
       "playstore": "https://play.google.com/store/apps/details?id=org.horaapps.leafpic"
+    },
+    {
+      "name": "Librera Reader",
+      "description": "An e-book reader for Android devices; it supports the following formats: PDF, EPUB, EPUB3, MOBI, DjVu, FB2, TXT, RTF, AZW, AZW3, HTML, CBZ, CBR, DOC, DOCX, and OPDS Catalogs.",
+      "source": "https://github.com/foobnix/LibreraReader",
+      "fdroid": "https://f-droid.org/packages/com.foobnix.pro.pdf.reader",
+      "playstore": "https://play.google.com/store/apps/details?id=com.foobnix.pro.pdf.reader",
+      "website": "https://librera.mobi"
     },
     {
       "name": "MPV",

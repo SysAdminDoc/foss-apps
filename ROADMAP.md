@@ -2,13 +2,6 @@
 
 ## Research-Driven Additions
 
-- [ ] P0 - Add fail-fast catalog validation
-  Why: The repo has no semantic gate for required fields, duplicate sources, sort order, unsupported source hosts, or generated-output drift.
-  Evidence: `scripts/add.py`, `scripts/build.py`, `apps/*.json`, `CONTRIBUTING.md`, https://json-schema.org/
-  Touches: `scripts/validate.py`, `scripts/build.py`, `scripts/add.py`, `apps/*.json`, `README.md`, `categories/*.md`
-  Acceptance: A local validation command exits non-zero with file/app-specific messages for invalid JSON, missing required fields, duplicate source URLs, unsorted app names, invalid URLs, and generated Markdown drift.
-  Complexity: M
-
 - [ ] P0 - Repair contributor intake for split category JSON
   Why: Contributor docs still instruct edits to `apps.json`, but the repo now stores one JSON file per category.
   Evidence: `CONTRIBUTING.md`, `.github/ISSUE_TEMPLATE/app-suggestion.md`, `apps/*.json`

@@ -21,6 +21,17 @@ _I'm not affiliated with these apps, I'm just sharing them because I think they'
 
 **[`Acknowledgments`](#acknowledgments 'Acknowledgments')**
 
+## Maintainer Checks
+
+After editing `apps/*.json`, run:
+
+```sh
+py -3 scripts/validate.py
+py -3 scripts/build.py
+```
+
+Validation fails on invalid JSON, missing required fields, duplicate source URLs, unsorted app names, invalid URLs, and generated Markdown drift.
+
 ## Table of Contents
 
 <!-- table-of-contents starts -->
