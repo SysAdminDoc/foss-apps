@@ -30,9 +30,11 @@ After editing `apps/*.json`, run:
 ```sh
 py -3 scripts/validate.py
 py -3 scripts/build.py
+py -3 scripts/check_links.py --timeout 10
 ```
 
 Validation fails on invalid JSON, missing required fields, duplicate source URLs, unsorted app names, invalid URLs, and generated output drift.
+The link checker reports hard failures with a non-zero exit code and lists rate limits separately.
 
 ## Table of Contents
 

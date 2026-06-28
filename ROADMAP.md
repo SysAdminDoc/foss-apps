@@ -2,13 +2,6 @@
 
 ## Research-Driven Additions
 
-- [ ] P1 - Add local link-health and badge-health reporting
-  Why: The catalog depends on external source, install, website, stars, and last-commit URLs, but there is no maintainer report for dead links or badge failures.
-  Evidence: `scripts/build.py`, `scripts/add.py`, https://shields.io/, https://docs.github.com/en/rest
-  Touches: `scripts/check_links.py`, `scripts/validate.py`, `CLAUDE.md`, `README.md`
-  Acceptance: A local command checks stored URLs with timeouts, distinguishes hard failures from rate limits, and writes a concise console report without modifying catalog data.
-  Complexity: M
-
 - [ ] P2 - Add accessibility and mobile polish to generated pages
   Why: Generated category pages are plain Markdown with badge images and repeated link text, which is scanable but not optimized for screen readers or mobile comparison.
   Evidence: `categories/*.md`, https://www.privacyguides.org/en/android/
