@@ -16,6 +16,9 @@ URL_FIELDS = (
     "fdroid",
     "playstore",
     "website",
+    "izzyondroid",
+    "accrescent",
+    "obtainium",
     "stars_link",
     "last_commit_link",
 )

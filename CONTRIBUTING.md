@@ -1,6 +1,6 @@
 # Contributing Guidelines
 
-This document shows you how to get started with your contribution to this project. If you follow these, your PR will be merged quickly.
+This document shows you how to get started with your contribution to this project.
 
 [**ADDING A NEW APP**](#adding-a-new-app "ADDING A NEW APP")
 
@@ -8,72 +8,69 @@ This document shows you how to get started with your contribution to this projec
 
 ## Adding a new app
 
-- Fork the repo
+- Fork the repo:
 
   - <https://github.com/albertomosconi/foss-apps/fork>
 
-- Check out a new branch from `main` and name it the same as the app you want to add:
+- Check out a new branch from `main` and name it after the app you want to add:
 
-  - Run this command in a terminal (replacing `APP_NAME` with the name of your app)
-    ```
-    $ git checkout -b APP_NAME
-    ```
-    If you get an error, you may need to run this command first
-    ```
-    $ git remote update && git fetch
-    ```
-  - Use one branch per app
+  ```sh
+  git checkout -b APP_NAME
+  ```
 
-- Add your app to the list, respecting the general structure
+- Add your app to the matching category file under `apps/`.
 
-  - ### The only file that should be edited is `apps.json`
+  - Browser apps go in `apps/browsers.json`, file managers go in `apps/file-managers.json`, and so on.
+  - If a category does not exist yet, add a new `apps/<category-slug>.json` file with `title`, `emoji`, and an empty `apps` list before adding the app.
+  - Keep each category's app list sorted alphabetically by `name`.
+  - If a field is unknown, leave it out instead of adding an empty string.
 
-  - If you're not familiar with the `json` format please look it up before editing to avoid errors. For example read [this article](https://www.w3schools.com/whatis/whatis_json.asp "this article").
+- Use this app-object shape where the information is known:
 
-  - Both the **categories** and the **sublist of apps** in each category are **ordered alphabetically**, so pay attention to this when you're adding your app to the list.
+  ```json
+  {
+    "name": "App Name",
+    "description": "A 15 to 60 word summary of the app and why it is useful.",
+    "source": "https://github.com/example/app",
+    "package": "org.example.app",
+    "license": "GPL-3.0-only",
+    "fdroid": "https://f-droid.org/packages/org.example.app",
+    "izzyondroid": "https://apt.izzysoft.de/fdroid/index/apk/org.example.app",
+    "accrescent": "https://accrescent.app/app/org.example.app",
+    "obtainium": "https://github.com/example/app/releases",
+    "playstore": "https://play.google.com/store/apps/details?id=org.example.app",
+    "website": "https://example.org",
+    "install_sources": "F-Droid and GitHub releases are maintained by the upstream project.",
+    "maintenance_notes": "Actively maintained; latest release within the last year.",
+    "privacy_security_notes": "No trackers known; document any anti-features or network caveats."
+  }
+  ```
 
-  - Each app entry has the same structure, fill as many fields as possible so that the information is the most complete. If the field remains empty please delete it from the object.
+- Include these details in the issue or pull request:
 
-    ```
-      {
-            "host": "",
-            "name": "",
-            "description": "",
-            "stars_link": "",
-            "source": "",
-            "fdroid": "",
-            "playstore": "",
-            "website": ""
-      }
-    ```
+  - Correct category file, for example `apps/browsers.json`
+  - App name and package name
+  - Source repository URL
+  - License
+  - Install sources, including F-Droid, IzzyOnDroid, Accrescent, Obtainium-compatible releases, Play Store, or website links when available
+  - Maintenance status or archive/deprecation notes
+  - Privacy/security caveats, including anti-features, trackers, unusual permissions, or network-service dependencies
 
-    `host` should either be "GitHub" or "GitLab", if your app isn't provided through one of these platforms please delete this field, along with the `stars_link` field. The latter should contain the link for the stars badge using the following templates:
+- Run the local checks before committing:
 
-    - GitHub: `https://img.shields.io/github/stars/<USERNAME>/<REPO>.svg?label=★&style=flat`
-    - GitLab: please refer to [**issue #1**](https://github.com/albertomosconi/foss-apps/issues/1 "issue #1").
+  ```sh
+  py -3 scripts/build.py
+  py -3 scripts/validate.py
+  ```
 
-    `description` should contain a text from 15 to 60 words, describing the key functionality and selling points of your application.
+- Commit your changes:
 
-- Commit your changes
+  ```sh
+  git commit -am "app: add APP_NAME in CATEGORY_NAME"
+  ```
 
-  - Make sure your commit message follows the following pattern, where `APP_NAME` is the name of your app, and `CATEGORY_NAME` is the category in which your app resides
-    ```
-    $ git commit -am "app: add APP_NAME in CATEGORY_NAME"
-    ```
-
-- Push to the branch
-
-  - Check that you're pushing to the branch named after your app
-    ```
-    $ git push origin APP_NAME
-    ```
-
-- Make a pull request
-
-  - Make sure you send the PR to the `main` branch
-
-- Don't forget to star the repo ;)
+- Push your branch and open a pull request against `main`.
 
 ## Other Contributions
 
-There are no specific rules for any other type of contribution, feel free to send your PR!
+There are no specific rules for any other type of contribution, feel free to send your PR.

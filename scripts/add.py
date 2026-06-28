@@ -99,19 +99,33 @@ def new_app():
             break
 
     required_fields = ["name", "description"]
-    optional_fields = ["fdroid", "playstore", "website"]
-    for k in required_fields + optional_fields:
+    optional_url_fields = [
+        "fdroid",
+        "izzyondroid",
+        "accrescent",
+        "obtainium",
+        "playstore",
+        "website",
+    ]
+    optional_text_fields = [
+        "package",
+        "license",
+        "install_sources",
+        "maintenance_notes",
+        "privacy_security_notes",
+    ]
+    for k in required_fields + optional_url_fields + optional_text_fields:
         while True:
             v = input(f"{k}: ").strip()
             if v != "":
                 try:
-                    if k in optional_fields:
+                    if k in optional_url_fields:
                         test_link(v)
                     new_app[k] = v
                     break
                 except:
                     continue
-            elif k in optional_fields:
+            elif k in optional_url_fields or k in optional_text_fields:
                 break
             else:
                 exit_with_error("this field is required.")

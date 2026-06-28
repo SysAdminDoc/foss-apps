@@ -2,13 +2,6 @@
 
 ## Research-Driven Additions
 
-- [ ] P0 - Repair contributor intake for split category JSON
-  Why: Contributor docs still instruct edits to `apps.json`, but the repo now stores one JSON file per category.
-  Evidence: `CONTRIBUTING.md`, `.github/ISSUE_TEMPLATE/app-suggestion.md`, `apps/*.json`
-  Touches: `CONTRIBUTING.md`, `.github/ISSUE_TEMPLATE/app-suggestion.md`, `scripts/add.py`
-  Acceptance: Docs and issue template ask for the correct category file, package name, license, install sources, source URL, maintenance notes, and privacy/security caveats; no reference tells contributors to edit a non-existent root `apps.json`.
-  Complexity: S
-
 - [ ] P0 - Fix interactive add-tool error handling
   Why: `exit_with_error()` currently does not exit for some fatal validation paths, and broad `except:` blocks hide root causes.
   Evidence: `scripts/add.py`
