@@ -2,6 +2,7 @@
 
 ## Unreleased
 
+- Improved generated category page accessibility with app headings, descriptive badge alt text, and cleaner mobile-friendly link blocks.
 - Added a local link-health and badge-health report command.
 - Added a generated searchable catalog page with category, install-source, source-host, and sort controls.
 - Expanded app metadata support for package IDs, license, source host, install-source links, store package IDs, and anti-features.

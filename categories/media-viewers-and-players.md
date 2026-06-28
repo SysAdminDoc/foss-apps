@@ -1,78 +1,127 @@
 # ⏯ Media Viewers and Players
-[`< go back home`](../README.md)
 
-- **BookReader**: An open-source book reading application. Supported formats: fb2, html, txt, epub, mobi, rtf, doc, pdf, djvu, cbr, cbz.
+[Back to README](../README.md)
 
-    ![Stars](https://badgen.net/gitlab/stars/axet/android-book-reader) ![last commit](https://img.shields.io/gitlab/last-commit/axet/android-book-reader)
+## BookReader
 
-    [`[source]`](https://gitlab.com/axet/android-book-reader "source") [`[f-droid]`](https://f-droid.org/packages/com.github.axet.bookreader "f-droid") [`[playstore]`](https://play.google.com/store/apps/details?id=com.github.axet.bookreader "playstore") 
+An open-source book reading application. Supported formats: fb2, html, txt, epub, mobi, rtf, doc, pdf, djvu, cbr, cbz.
 
-- **Just (Video) Player**: A simple and lightweight, yet polished and powerful Android video player based on ExoPlayer, compatible with Android 5+ and Android TV.
+![Star count badge for BookReader](https://badgen.net/gitlab/stars/axet/android-book-reader) ![Last commit badge for BookReader](https://img.shields.io/gitlab/last-commit/axet/android-book-reader)
 
-    ![Stars](https://badgen.net/github/stars/moneytoo/Player) ![last commit](https://img.shields.io/github/last-commit/moneytoo/Player)
+**Links:** [Source repository](https://gitlab.com/axet/android-book-reader) | [F-Droid](https://f-droid.org/packages/com.github.axet.bookreader) | [Play Store](https://play.google.com/store/apps/details?id=com.github.axet.bookreader)
 
-    [`[source]`](https://github.com/moneytoo/Player "source") [`[f-droid]`](https://f-droid.org/packages/com.brouken.player/ "f-droid") [`[playstore]`](https://play.google.com/store/apps/details?id=com.brouken.player "playstore") 
+---
 
-- **LeafPic**: A fluid, material-designed alternative gallery, it also is ad-free and open source under GPLv3 license. It doesn't miss any of the main features of a stock gallery. NO LONGER MAINTAINED.
+## Just (Video) Player
 
-    ![Stars](https://badgen.net/github/stars/UnevenSoftware/LeafPic) ![last commit](https://img.shields.io/github/last-commit/UnevenSoftware/LeafPic)
+A simple and lightweight, yet polished and powerful Android video player based on ExoPlayer, compatible with Android 5+ and Android TV.
 
-    _Review:_ status: stale | reviewed: 2026-06-28 | flags: deprecated | successor: Review a maintained gallery replacement before recommending.
+![Star count badge for Just (Video) Player](https://badgen.net/github/stars/moneytoo/Player) ![Last commit badge for Just (Video) Player](https://img.shields.io/github/last-commit/moneytoo/Player)
 
-    _Trust:_ package: org.horaapps.leafpic | license: GPL-3.0-only | source host: GitHub | f-droid package: org.horaapps.leafpic
+**Links:** [Source repository](https://github.com/moneytoo/Player) | [F-Droid](https://f-droid.org/packages/com.brouken.player/) | [Play Store](https://play.google.com/store/apps/details?id=com.brouken.player)
 
-    [`[source]`](https://github.com/UnevenSoftware/LeafPic "source") [`[f-droid]`](https://f-droid.org/app/org.horaapps.leafpic "f-droid") [`[playstore]`](https://play.google.com/store/apps/details?id=org.horaapps.leafpic "playstore") 
+---
 
-- **Librera Reader**: An e-book reader for Android devices; it supports the following formats: PDF, EPUB, EPUB3, MOBI, DjVu, FB2, TXT, RTF, AZW, AZW3, HTML, CBZ, CBR, DOC, DOCX, and OPDS Catalogs.
+## LeafPic
 
-    ![Stars](https://badgen.net/github/stars/foobnix/LibreraReader) ![last commit](https://img.shields.io/github/last-commit/foobnix/LibreraReader)
+A fluid, material-designed alternative gallery, it also is ad-free and open source under GPLv3 license. It doesn't miss any of the main features of a stock gallery. NO LONGER MAINTAINED.
 
-    [`[source]`](https://github.com/foobnix/LibreraReader "source") [`[f-droid]`](https://f-droid.org/packages/com.foobnix.pro.pdf.reader "f-droid") [`[playstore]`](https://play.google.com/store/apps/details?id=com.foobnix.pro.pdf.reader "playstore") [`[website]`](https://librera.mobi "website")
+![Star count badge for LeafPic](https://badgen.net/github/stars/UnevenSoftware/LeafPic) ![Last commit badge for LeafPic](https://img.shields.io/github/last-commit/UnevenSoftware/LeafPic)
 
-- **MPV**: A video player for Android based on libmpv. It features hardware and software video decoding, gesture-based seeking and volume/brightness control, libass support for styled subtitles, and url streaming.
+**Review:** status: stale | reviewed: 2026-06-28 | flags: deprecated | successor: Review a maintained gallery replacement before recommending.
 
-    ![Stars](https://badgen.net/github/stars/mpv-android/mpv-android) ![last commit](https://img.shields.io/github/last-commit/mpv-android/mpv-android)
+**Trust:** package: org.horaapps.leafpic | license: GPL-3.0-only | source host: GitHub | f-droid package: org.horaapps.leafpic
 
-    [`[source]`](https://github.com/mpv-android/mpv-android "source") [`[f-droid]`](https://apt.izzysoft.de/fdroid/index/apk/is.xyz.mpv "f-droid") [`[playstore]`](https://play.google.com/store/apps/details?id=is.xyz.mpv "playstore") 
+**Links:** [Source repository](https://github.com/UnevenSoftware/LeafPic) | [F-Droid](https://f-droid.org/app/org.horaapps.leafpic) | [Play Store](https://play.google.com/store/apps/details?id=org.horaapps.leafpic)
 
-- **Music Player GO**: A simple yet fully-featured local music player aiming at simplicity and performance.
+---
 
-    ![Stars](https://badgen.net/github/stars/enricocid/Music-Player-GO) ![last commit](https://img.shields.io/github/last-commit/enricocid/Music-Player-GO)
+## Librera Reader
 
-    [`[source]`](https://github.com/enricocid/Music-Player-GO "source") [`[f-droid]`](https://f-droid.org/packages/com.iven.musicplayergo "f-droid") [`[playstore]`](https://play.google.com/store/apps/details?id=com.iven.musicplayergo "playstore") 
+An e-book reader for Android devices; it supports the following formats: PDF, EPUB, EPUB3, MOBI, DjVu, FB2, TXT, RTF, AZW, AZW3, HTML, CBZ, CBR, DOC, DOCX, and OPDS Catalogs.
 
-- **Nova Video Player**: An open source video player for Android designed for tablets, phones and AndroidTV devices. A fork of the original Archos Video Player Community Edition.
+![Star count badge for Librera Reader](https://badgen.net/github/stars/foobnix/LibreraReader) ![Last commit badge for Librera Reader](https://img.shields.io/github/last-commit/foobnix/LibreraReader)
 
-    ![Stars](https://badgen.net/github/stars/nova-video-player/aos-AVP) ![last commit](https://img.shields.io/github/last-commit/nova-video-player/aos-AVP)
+**Links:** [Source repository](https://github.com/foobnix/LibreraReader) | [F-Droid](https://f-droid.org/packages/com.foobnix.pro.pdf.reader) | [Play Store](https://play.google.com/store/apps/details?id=com.foobnix.pro.pdf.reader) | [Website](https://librera.mobi)
 
-    [`[source]`](https://github.com/nova-video-player/aos-AVP "source") [`[f-droid]`](https://f-droid.org/packages/org.courville.nova "f-droid") [`[playstore]`](https://play.google.com/store/apps/details?id=org.courville.nova "playstore") 
+---
 
-- **Photok**: a free Photo-Safe. It stores your photos encrypted on your device and hides them from others. It uses technologies like, AES-256 encryption standard or bcrypt, to keep your photos secure. Photok is completely free, open source, and contains no ads.
+## MPV
 
-    ![Stars](https://badgen.net/github/stars/leonlatsch/photok) ![last commit](https://img.shields.io/github/last-commit/leonlatsch/photok)
+A video player for Android based on libmpv. It features hardware and software video decoding, gesture-based seeking and volume/brightness control, libass support for styled subtitles, and url streaming.
 
-    [`[source]`](https://github.com/leonlatsch/photok "source") [`[f-droid]`](https://f-droid.org/packages/dev.leonlatsch.photok "f-droid") [`[playstore]`](https://play.google.com/store/apps/details?id=dev.leonlatsch.photok "playstore") 
+![Star count badge for MPV](https://badgen.net/github/stars/mpv-android/mpv-android) ![Last commit badge for MPV](https://img.shields.io/github/last-commit/mpv-android/mpv-android)
 
-- **Retro Music Player**: Material design music player with simple interface and lots of features such as driving mode, smart auto playlists, 30+ language support, lyrics screen (download and sync with music), gapless playback, folder support and more.
+**Links:** [Source repository](https://github.com/mpv-android/mpv-android) | [F-Droid](https://apt.izzysoft.de/fdroid/index/apk/is.xyz.mpv) | [Play Store](https://play.google.com/store/apps/details?id=is.xyz.mpv)
 
-    ![Stars](https://badgen.net/github/stars/RetroMusicPlayer/RetroMusicPlayer) ![last commit](https://img.shields.io/github/last-commit/RetroMusicPlayer/RetroMusicPlayer)
+---
 
-    [`[source]`](https://github.com/RetroMusicPlayer/RetroMusicPlayer "source")  [`[playstore]`](https://play.google.com/store/apps/details?id=code.name.monkey.retromusic "playstore") [`[website]`](https://retromusic.app "website")
+## Music Player GO
 
-- **Simple Gallery**: A highly customizable lightweight gallery loved by millions of people for its great user experience. Organize and edit your photos, recover deleted files with the recycle bin, protect & hide files and easily view a huge variety of different photo and video formats including RAW, SVG, GIF, panoramic and much more.
+A simple yet fully-featured local music player aiming at simplicity and performance.
 
-    ![Stars](https://badgen.net/github/stars/SimpleMobileTools/Simple-Gallery) ![last commit](https://img.shields.io/github/last-commit/SimpleMobileTools/Simple-Gallery)
+![Star count badge for Music Player GO](https://badgen.net/github/stars/enricocid/Music-Player-GO) ![Last commit badge for Music Player GO](https://img.shields.io/github/last-commit/enricocid/Music-Player-GO)
 
-    [`[source]`](https://github.com/SimpleMobileTools/Simple-Gallery "source") [`[f-droid]`](https://f-droid.org/packages/com.simplemobiletools.gallery.pro "f-droid") [`[playstore]`](https://play.google.com/store/apps/details?id=com.simplemobiletools.gallery "playstore") [`[website]`](https://www.simplemobiletools.com/gallery "website")
+**Links:** [Source repository](https://github.com/enricocid/Music-Player-GO) | [F-Droid](https://f-droid.org/packages/com.iven.musicplayergo) | [Play Store](https://play.google.com/store/apps/details?id=com.iven.musicplayergo)
 
-- **Vinyl Music Player**: A material designed local music player for Android. Forked from Phonograph; makes all Pro features free, as they used to be, and has some additional features.
+---
 
-    ![Stars](https://badgen.net/github/stars/AdrienPoupa/VinylMusicPlayer) ![last commit](https://img.shields.io/github/last-commit/AdrienPoupa/VinylMusicPlayer)
+## Nova Video Player
 
-    [`[source]`](https://github.com/AdrienPoupa/VinylMusicPlayer "source") [`[f-droid]`](https://f-droid.org/packages/com.poupa.vinylmusicplayer "f-droid") [`[playstore]`](https://play.google.com/store/apps/details?id=com.poupa.vinylmusicplayer "playstore") 
+An open source video player for Android designed for tablets, phones and AndroidTV devices. A fork of the original Archos Video Player Community Edition.
 
-- **VLC**: A free and open source cross-platform multimedia player and framework that plays most multimedia files as well as DVDs, Audio CDs, VCDs, and various streaming protocols.
+![Star count badge for Nova Video Player](https://badgen.net/github/stars/nova-video-player/aos-AVP) ![Last commit badge for Nova Video Player](https://img.shields.io/github/last-commit/nova-video-player/aos-AVP)
 
-    ![Stars](https://img.shields.io/badge/dynamic/json?label=stars&query=$.star_count&url=https://code.videolan.org/api/v4/projects/36) 
+**Links:** [Source repository](https://github.com/nova-video-player/aos-AVP) | [F-Droid](https://f-droid.org/packages/org.courville.nova) | [Play Store](https://play.google.com/store/apps/details?id=org.courville.nova)
 
-    [`[source]`](https://code.videolan.org/videolan/VLC-android "source") [`[f-droid]`](https://f-droid.org/en/packages/org.videolan.vlc "f-droid") [`[playstore]`](https://play.google.com/store/apps/details?id=org.videolan.vlc "playstore") [`[website]`](https://www.videolan.org/vlc "website")
+---
+
+## Photok
+
+a free Photo-Safe. It stores your photos encrypted on your device and hides them from others. It uses technologies like, AES-256 encryption standard or bcrypt, to keep your photos secure. Photok is completely free, open source, and contains no ads.
+
+![Star count badge for Photok](https://badgen.net/github/stars/leonlatsch/photok) ![Last commit badge for Photok](https://img.shields.io/github/last-commit/leonlatsch/photok)
+
+**Links:** [Source repository](https://github.com/leonlatsch/photok) | [F-Droid](https://f-droid.org/packages/dev.leonlatsch.photok) | [Play Store](https://play.google.com/store/apps/details?id=dev.leonlatsch.photok)
+
+---
+
+## Retro Music Player
+
+Material design music player with simple interface and lots of features such as driving mode, smart auto playlists, 30+ language support, lyrics screen (download and sync with music), gapless playback, folder support and more.
+
+![Star count badge for Retro Music Player](https://badgen.net/github/stars/RetroMusicPlayer/RetroMusicPlayer) ![Last commit badge for Retro Music Player](https://img.shields.io/github/last-commit/RetroMusicPlayer/RetroMusicPlayer)
+
+**Links:** [Source repository](https://github.com/RetroMusicPlayer/RetroMusicPlayer) | [Play Store](https://play.google.com/store/apps/details?id=code.name.monkey.retromusic) | [Website](https://retromusic.app)
+
+---
+
+## Simple Gallery
+
+A highly customizable lightweight gallery loved by millions of people for its great user experience. Organize and edit your photos, recover deleted files with the recycle bin, protect & hide files and easily view a huge variety of different photo and video formats including RAW, SVG, GIF, panoramic and much more.
+
+![Star count badge for Simple Gallery](https://badgen.net/github/stars/SimpleMobileTools/Simple-Gallery) ![Last commit badge for Simple Gallery](https://img.shields.io/github/last-commit/SimpleMobileTools/Simple-Gallery)
+
+**Links:** [Source repository](https://github.com/SimpleMobileTools/Simple-Gallery) | [F-Droid](https://f-droid.org/packages/com.simplemobiletools.gallery.pro) | [Play Store](https://play.google.com/store/apps/details?id=com.simplemobiletools.gallery) | [Website](https://www.simplemobiletools.com/gallery)
+
+---
+
+## Vinyl Music Player
+
+A material designed local music player for Android. Forked from Phonograph; makes all Pro features free, as they used to be, and has some additional features.
+
+![Star count badge for Vinyl Music Player](https://badgen.net/github/stars/AdrienPoupa/VinylMusicPlayer) ![Last commit badge for Vinyl Music Player](https://img.shields.io/github/last-commit/AdrienPoupa/VinylMusicPlayer)
+
+**Links:** [Source repository](https://github.com/AdrienPoupa/VinylMusicPlayer) | [F-Droid](https://f-droid.org/packages/com.poupa.vinylmusicplayer) | [Play Store](https://play.google.com/store/apps/details?id=com.poupa.vinylmusicplayer)
+
+---
+
+## VLC
+
+A free and open source cross-platform multimedia player and framework that plays most multimedia files as well as DVDs, Audio CDs, VCDs, and various streaming protocols.
+
+![Star count badge for VLC](https://img.shields.io/badge/dynamic/json?label=stars&query=$.star_count&url=https://code.videolan.org/api/v4/projects/36)
+
+**Links:** [Source repository](https://code.videolan.org/videolan/VLC-android) | [F-Droid](https://f-droid.org/en/packages/org.videolan.vlc) | [Play Store](https://play.google.com/store/apps/details?id=org.videolan.vlc) | [Website](https://www.videolan.org/vlc)
+
+---

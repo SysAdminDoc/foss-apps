@@ -346,7 +346,7 @@ def review_metadata(app):
     if not parts:
         return ""
 
-    return "    _Review:_ " + " | ".join(parts)
+    return "**Review:** " + " | ".join(parts)
 
 
 def trust_metadata(app):
@@ -378,57 +378,55 @@ def trust_metadata(app):
     if not parts:
         return ""
 
-    return "    _Trust:_ " + " | ".join(parts)
+    return "**Trust:** " + " | ".join(parts)
 
 
-def install_links(app, source, fdroid, playstore, website):
-    link_source = f'[`[source]`]({source} "source")'
-    link_fdroid = f'[`[f-droid]`]({fdroid} "f-droid")' if fdroid else ""
-    link_playstore = (
-        f'[`[playstore]`]({playstore} "playstore")' if playstore else ""
+def install_links(app):
+    labels = (
+        ("source", "Source repository"),
+        ("fdroid", "F-Droid"),
+        ("playstore", "Play Store"),
+        ("website", "Website"),
+        ("izzyondroid", "IzzyOnDroid"),
+        ("accrescent", "Accrescent"),
+        ("obtainium", "Obtainium"),
     )
-    link_website = f'[`[website]`]({website} "website")' if website else ""
-    base_links = f"{link_source} {link_fdroid} {link_playstore} {link_website}"
-
-    extra_links = []
-    if app.get("izzyondroid"):
-        extra_links.append(f'[`[izzyondroid]`]({app.get("izzyondroid")} "izzyondroid")')
-    if app.get("accrescent"):
-        extra_links.append(f'[`[accrescent]`]({app.get("accrescent")} "accrescent")')
-    if app.get("obtainium"):
-        extra_links.append(f'[`[obtainium]`]({app.get("obtainium")} "obtainium")')
-
-    if not extra_links:
-        return base_links
-    return " ".join([base_links, *extra_links])
+    links = [
+        f"[{label}]({app.get(field)})"
+        for field, label in labels
+        if app.get(field)
+    ]
+    return " | ".join(links)
 
 
 def render_category(cat):
     cat_json = load_category(cat)
     lines = [
         f'# {cat_json.get("emoji")} {cat_json.get("title")}',
-        "[`< go back home`](../README.md)",
+        "",
+        "[Back to README](../README.md)",
     ]
 
     for app in cat_json.get("apps"):
         name = app.get("name")
         description = app.get("description")
-        source = app.get("source")
-        fdroid = app.get("fdroid")
-        playstore = app.get("playstore")
-        website = app.get("website")
 
         stars_link, last_commit_link = badge_links(app)
-        badge_stars = f"![Stars]({stars_link})" if stars_link else ""
-        badge_commit = f"![last commit]({last_commit_link})" if last_commit_link else ""
-        links = install_links(app, source, fdroid, playstore, website)
+        badges = []
+        if stars_link:
+            badges.append(f"![Star count badge for {name}]({stars_link})")
+        if last_commit_link:
+            badges.append(f"![Last commit badge for {name}]({last_commit_link})")
+        links = install_links(app)
 
         app_lines = [
             "",
-            f"- **{name}**: {description}",
+            f"## {name}",
             "",
-            f"    {badge_stars} {badge_commit}",
+            description,
         ]
+        if badges:
+            app_lines.extend(["", " ".join(badges)])
         review = review_metadata(app)
         if review:
             app_lines.extend(["", review])
@@ -438,7 +436,9 @@ def render_category(cat):
         app_lines.extend(
             [
                 "",
-                f"    {links}",
+                f"**Links:** {links}",
+                "",
+                "---",
             ]
         )
         lines.append("\n".join(app_lines))

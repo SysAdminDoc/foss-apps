@@ -1,32 +1,53 @@
 # 💬 Texting and Phone
-[`< go back home`](../README.md)
 
-- **Delta Chat**: A messaging app that is completely compatible with the existing e-mail infrastructure. So, with Delta Chat you get the ease of well-known messengers with the reach of e-mail. Moreover, you're independent from other companies or services -- as your data are not related to Delta Chat, you won't even add new dependencies here.
+[Back to README](../README.md)
 
-    ![Stars](https://badgen.net/github/stars/deltachat/deltachat-android) ![last commit](https://img.shields.io/github/last-commit/deltachat/deltachat-android)
+## Delta Chat
 
-    [`[source]`](https://github.com/deltachat/deltachat-android "source") [`[f-droid]`](https://f-droid.org/packages/com.b44t.messenger "f-droid") [`[playstore]`](https://play.google.com/store/apps/details?id=chat.delta "playstore") [`[website]`](https://delta.chat/en "website")
+A messaging app that is completely compatible with the existing e-mail infrastructure. So, with Delta Chat you get the ease of well-known messengers with the reach of e-mail. Moreover, you're independent from other companies or services -- as your data are not related to Delta Chat, you won't even add new dependencies here.
 
-- **Koler**: Uniquely stylized phone app with customizable features, designed with the user in mind. It uses swipes and minimalistic design, making everything more beautiful, intuitive, yet still productive.
+![Star count badge for Delta Chat](https://badgen.net/github/stars/deltachat/deltachat-android) ![Last commit badge for Delta Chat](https://img.shields.io/github/last-commit/deltachat/deltachat-android)
 
-    ![Stars](https://badgen.net/github/stars/Chooloo/koler) ![last commit](https://img.shields.io/github/last-commit/Chooloo/koler)
+**Links:** [Source repository](https://github.com/deltachat/deltachat-android) | [F-Droid](https://f-droid.org/packages/com.b44t.messenger) | [Play Store](https://play.google.com/store/apps/details?id=chat.delta) | [Website](https://delta.chat/en)
 
-    [`[source]`](https://github.com/Chooloo/koler "source") [`[f-droid]`](https://apt.izzysoft.de/fdroid/index/apk/com.chooloo.www.koler "f-droid")  
+---
 
-- **Mattermost**: An open-source, self-hostable online chat service with file sharing, search, and integrations. It is designed as an internal chat for organisations and companies, and mostly markets itself as an open-source alternative to Slack and Microsoft Teams.
+## Koler
 
-    ![Stars](https://badgen.net/github/stars/mattermost/mattermost-mobile) ![last commit](https://img.shields.io/github/last-commit/mattermost/mattermost-mobile)
+Uniquely stylized phone app with customizable features, designed with the user in mind. It uses swipes and minimalistic design, making everything more beautiful, intuitive, yet still productive.
 
-    [`[source]`](https://github.com/mattermost/mattermost-mobile "source") [`[f-droid]`](https://f-droid.org/en/packages/com.mattermost.rnbeta "f-droid") [`[playstore]`](https://play.google.com/store/apps/details?id=com.mattermost.rn "playstore") [`[website]`](https://mattermost.com "website")
+![Star count badge for Koler](https://badgen.net/github/stars/Chooloo/koler) ![Last commit badge for Koler](https://img.shields.io/github/last-commit/Chooloo/koler)
 
-- **QKSMS**: An open source replacement to the stock messaging app on Android. Features a beautiful, intuitive, and clutter-free design that allows you to focus on what matters, while stil being customizable.
+**Links:** [Source repository](https://github.com/Chooloo/koler) | [F-Droid](https://apt.izzysoft.de/fdroid/index/apk/com.chooloo.www.koler)
 
-    ![Stars](https://badgen.net/github/stars/moezbhatti/qksms) ![last commit](https://img.shields.io/github/last-commit/moezbhatti/qksms)
+---
 
-    [`[source]`](https://github.com/moezbhatti/qksms "source") [`[f-droid]`](https://f-droid.org/packages/com.moez.QKSMS "f-droid") [`[playstore]`](https://play.google.com/store/apps/details?id=com.moez.QKSMS "playstore") 
+## Mattermost
 
-- **Signal**: A messaging app for simple private communication with friends. Signal uses your phone's data connection (WiFi/3G/4G) to communicate securely, optionally supports plain SMS/MMS to function as a unified messenger, and can also encrypt the stored messages on your phone.
+An open-source, self-hostable online chat service with file sharing, search, and integrations. It is designed as an internal chat for organisations and companies, and mostly markets itself as an open-source alternative to Slack and Microsoft Teams.
 
-    ![Stars](https://badgen.net/github/stars/signalapp/Signal-Android) ![last commit](https://img.shields.io/github/last-commit/signalapp/Signal-Android)
+![Star count badge for Mattermost](https://badgen.net/github/stars/mattermost/mattermost-mobile) ![Last commit badge for Mattermost](https://img.shields.io/github/last-commit/mattermost/mattermost-mobile)
 
-    [`[source]`](https://github.com/signalapp/Signal-Android "source")  [`[playstore]`](https://play.google.com/store/apps/details?id=org.thoughtcrime.securesms "playstore") [`[website]`](https://signal.org "website")
+**Links:** [Source repository](https://github.com/mattermost/mattermost-mobile) | [F-Droid](https://f-droid.org/en/packages/com.mattermost.rnbeta) | [Play Store](https://play.google.com/store/apps/details?id=com.mattermost.rn) | [Website](https://mattermost.com)
+
+---
+
+## QKSMS
+
+An open source replacement to the stock messaging app on Android. Features a beautiful, intuitive, and clutter-free design that allows you to focus on what matters, while stil being customizable.
+
+![Star count badge for QKSMS](https://badgen.net/github/stars/moezbhatti/qksms) ![Last commit badge for QKSMS](https://img.shields.io/github/last-commit/moezbhatti/qksms)
+
+**Links:** [Source repository](https://github.com/moezbhatti/qksms) | [F-Droid](https://f-droid.org/packages/com.moez.QKSMS) | [Play Store](https://play.google.com/store/apps/details?id=com.moez.QKSMS)
+
+---
+
+## Signal
+
+A messaging app for simple private communication with friends. Signal uses your phone's data connection (WiFi/3G/4G) to communicate securely, optionally supports plain SMS/MMS to function as a unified messenger, and can also encrypt the stored messages on your phone.
+
+![Star count badge for Signal](https://badgen.net/github/stars/signalapp/Signal-Android) ![Last commit badge for Signal](https://img.shields.io/github/last-commit/signalapp/Signal-Android)
+
+**Links:** [Source repository](https://github.com/signalapp/Signal-Android) | [Play Store](https://play.google.com/store/apps/details?id=org.thoughtcrime.securesms) | [Website](https://signal.org)
+
+---

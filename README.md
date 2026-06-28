@@ -35,6 +35,7 @@ py -3 scripts/check_links.py --timeout 10
 
 Validation fails on invalid JSON, missing required fields, duplicate source URLs, unsorted app names, invalid URLs, and generated output drift.
 The link checker reports hard failures with a non-zero exit code and lists rate limits separately.
+Generated `categories/*.md` pages are rebuilt from `apps/*.json`; do not edit those pages directly.
 
 ## Table of Contents
 

@@ -2,13 +2,6 @@
 
 ## Research-Driven Additions
 
-- [ ] P2 - Add accessibility and mobile polish to generated pages
-  Why: Generated category pages are plain Markdown with badge images and repeated link text, which is scanable but not optimized for screen readers or mobile comparison.
-  Evidence: `categories/*.md`, https://www.privacyguides.org/en/android/
-  Touches: `scripts/build.py`, `README.md`, `categories/*.md`, static CSS/assets if added
-  Acceptance: Generated output has descriptive badge alt text, consistent link labels, mobile-friendly spacing, and category/app headings that remain clear on GitHub and GitHub Pages.
-  Complexity: M
-
 - [ ] P2 - Add lightweight regression tests for generator behavior
   Why: `scripts/build.py` constructs badges, parses source hosts, writes UTF-8 files, and updates marked README chunks without test coverage.
   Evidence: `scripts/build.py`, `CHANGELOG.md`, https://docs.pytest.org/
