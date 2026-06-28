@@ -34,6 +34,9 @@ This document shows you how to get started with your contribution to this projec
     "source": "https://github.com/example/app",
     "package": "org.example.app",
     "license": "GPL-3.0-only",
+    "source_host": "GitHub",
+    "fdroid_package": "org.example.app",
+    "izzyondroid_package": "org.example.app",
     "fdroid": "https://f-droid.org/packages/org.example.app",
     "izzyondroid": "https://apt.izzysoft.de/fdroid/index/apk/org.example.app",
     "accrescent": "https://accrescent.app/app/org.example.app",
@@ -45,6 +48,7 @@ This document shows you how to get started with your contribution to this projec
     "archived": false,
     "deprecated": false,
     "successor": "Name a maintained successor when the original app is archived or deprecated.",
+    "anti_features": ["NonFreeNet"],
     "install_sources": "F-Droid and GitHub releases are maintained by the upstream project.",
     "maintenance_notes": "Actively maintained; latest release within the last year.",
     "privacy_security_notes": "No trackers known; document any anti-features or network caveats."
@@ -56,8 +60,10 @@ This document shows you how to get started with your contribution to this projec
   - Correct category file, for example `apps/browsers.json`
   - App name and package name
   - Source repository URL
-  - License
+  - License and source host
   - Install sources, including F-Droid, IzzyOnDroid, Accrescent, Obtainium-compatible releases, Play Store, or website links when available
+  - F-Droid and IzzyOnDroid package IDs when they differ from the Android package name
+  - Anti-features when published by the install source
   - Maintenance status or archive/deprecation notes
   - Last reviewed date, archive/deprecation flags, and successor/replacement notes when relevant
   - Privacy/security caveats, including anti-features, trackers, unusual permissions, or network-service dependencies

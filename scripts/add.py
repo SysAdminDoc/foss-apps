@@ -21,10 +21,14 @@ OPTIONAL_URL_FIELDS = [
 OPTIONAL_TEXT_FIELDS = [
     "package",
     "license",
+    "fdroid_package",
+    "izzyondroid_package",
+    "source_host",
     "install_sources",
     "maintenance_notes",
     "privacy_security_notes",
 ]
+OPTIONAL_LIST_FIELDS = ["anti_features"]
 
 
 class AddToolError(Exception):
@@ -178,6 +182,13 @@ def new_app(root, category_names, sources, requester=request_status):
         value = input(f"{field}: ").strip()
         if value:
             new_app_record[field] = value
+
+    for field in OPTIONAL_LIST_FIELDS:
+        value = input(f"{field} (comma-separated): ").strip()
+        if value:
+            new_app_record[field] = [
+                item.strip() for item in value.split(",") if item.strip()
+            ]
 
     insert_app(root, category, new_app_record)
 

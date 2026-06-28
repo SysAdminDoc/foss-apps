@@ -3,6 +3,7 @@ import argparse
 import datetime as dt
 import json
 import pathlib
+import re
 import sys
 from urllib.parse import urlparse
 
@@ -25,7 +26,17 @@ URL_FIELDS = (
 )
 MAINTENANCE_STATUSES = {"active", "stale", "archived", "deprecated", "unknown"}
 BOOLEAN_FIELDS = ("archived", "deprecated")
-TEXT_FIELDS = ("successor", "review_notes")
+TEXT_FIELDS = (
+    "successor",
+    "review_notes",
+    "license",
+    "source_host",
+    "install_sources",
+    "maintenance_notes",
+    "privacy_security_notes",
+)
+PACKAGE_FIELDS = ("package", "fdroid_package", "izzyondroid_package")
+PACKAGE_RE = re.compile(r"^[A-Za-z][A-Za-z0-9_]*(\.[A-Za-z][A-Za-z0-9_]*)+$")
 
 
 def _label(path, app=None):
@@ -129,6 +140,22 @@ def validate_category(path, seen_sources):
         for field in TEXT_FIELDS:
             if field in app and not isinstance(app[field], str):
                 errors.append(f"{_label(path, app)}: field '{field}' must be text")
+
+        for field in PACKAGE_FIELDS:
+            value = app.get(field)
+            if value and not PACKAGE_RE.match(value):
+                errors.append(
+                    f"{_label(path, app)}: field '{field}' must be an Android package ID"
+                )
+
+        anti_features = app.get("anti_features")
+        if anti_features is not None:
+            if not isinstance(anti_features, list) or not all(
+                isinstance(item, str) and item for item in anti_features
+            ):
+                errors.append(
+                    f"{_label(path, app)}: field 'anti_features' must be a list of text values"
+                )
 
     sorted_names = sorted(names, key=str.lower)
     if names != sorted_names:

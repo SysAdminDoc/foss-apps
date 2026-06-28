@@ -75,6 +75,60 @@ def review_metadata(app):
     return "    _Review:_ " + " | ".join(parts)
 
 
+def trust_metadata(app):
+    parts = []
+    package = app.get("package")
+    if package:
+        parts.append(f"package: {package}")
+
+    license_name = app.get("license")
+    if license_name:
+        parts.append(f"license: {license_name}")
+
+    source_host = app.get("source_host")
+    if source_host:
+        parts.append(f"source host: {source_host}")
+
+    fdroid_package = app.get("fdroid_package")
+    if fdroid_package:
+        parts.append(f"f-droid package: {fdroid_package}")
+
+    izzy_package = app.get("izzyondroid_package")
+    if izzy_package:
+        parts.append(f"izzyondroid package: {izzy_package}")
+
+    anti_features = app.get("anti_features")
+    if anti_features:
+        parts.append("anti-features: " + ", ".join(anti_features))
+
+    if not parts:
+        return ""
+
+    return "    _Trust:_ " + " | ".join(parts)
+
+
+def install_links(app, source, fdroid, playstore, website):
+    link_source = f'[`[source]`]({source} "source")'
+    link_fdroid = f'[`[f-droid]`]({fdroid} "f-droid")' if fdroid else ""
+    link_playstore = (
+        f'[`[playstore]`]({playstore} "playstore")' if playstore else ""
+    )
+    link_website = f'[`[website]`]({website} "website")' if website else ""
+    base_links = f"{link_source} {link_fdroid} {link_playstore} {link_website}"
+
+    extra_links = []
+    if app.get("izzyondroid"):
+        extra_links.append(f'[`[izzyondroid]`]({app.get("izzyondroid")} "izzyondroid")')
+    if app.get("accrescent"):
+        extra_links.append(f'[`[accrescent]`]({app.get("accrescent")} "accrescent")')
+    if app.get("obtainium"):
+        extra_links.append(f'[`[obtainium]`]({app.get("obtainium")} "obtainium")')
+
+    if not extra_links:
+        return base_links
+    return " ".join([base_links, *extra_links])
+
+
 def render_category(cat):
     cat_json = load_category(cat)
     lines = [
@@ -93,12 +147,7 @@ def render_category(cat):
         stars_link, last_commit_link = badge_links(app)
         badge_stars = f"![Stars]({stars_link})" if stars_link else ""
         badge_commit = f"![last commit]({last_commit_link})" if last_commit_link else ""
-        link_source = f'[`[source]`]({source} "source")'
-        link_fdroid = f'[`[f-droid]`]({fdroid} "f-droid")' if fdroid else ""
-        link_playstore = (
-            f'[`[playstore]`]({playstore} "playstore")' if playstore else ""
-        )
-        link_website = f'[`[website]`]({website} "website")' if website else ""
+        links = install_links(app, source, fdroid, playstore, website)
 
         app_lines = [
             "",
@@ -109,10 +158,13 @@ def render_category(cat):
         review = review_metadata(app)
         if review:
             app_lines.extend(["", review])
+        trust = trust_metadata(app)
+        if trust:
+            app_lines.extend(["", trust])
         app_lines.extend(
             [
                 "",
-                f"    {link_source} {link_fdroid} {link_playstore} {link_website}",
+                f"    {links}",
             ]
         )
         lines.append("\n".join(app_lines))

@@ -52,6 +52,14 @@ class ValidateCatalogTests(unittest.TestCase):
                     "maintenance_status": "stale",
                     "deprecated": True,
                     "successor": "Review a maintained replacement.",
+                    "package": "org.example.alpha",
+                    "license": "GPL-3.0-only",
+                    "fdroid_package": "org.example.alpha",
+                    "source_host": "GitHub",
+                    "anti_features": ["NonFreeNet"],
+                    "izzyondroid": "https://apt.izzysoft.de/fdroid/index/apk/org.example.alpha",
+                    "accrescent": "https://accrescent.app/app/org.example.alpha",
+                    "obtainium": "https://github.com/example/alpha/releases",
                 }
             ]
         )
@@ -63,6 +71,13 @@ class ValidateCatalogTests(unittest.TestCase):
         self.assertIn("reviewed: 2026-06-28", rendered)
         self.assertIn("flags: deprecated", rendered)
         self.assertIn("successor: Review a maintained replacement.", rendered)
+        self.assertIn("_Trust:_ package: org.example.alpha", rendered)
+        self.assertIn("license: GPL-3.0-only", rendered)
+        self.assertIn("source host: GitHub", rendered)
+        self.assertIn("anti-features: NonFreeNet", rendered)
+        self.assertIn("[`[izzyondroid]`]", rendered)
+        self.assertIn("[`[accrescent]`]", rendered)
+        self.assertIn("[`[obtainium]`]", rendered)
 
     def test_reports_required_duplicate_sort_url_and_drift_errors(self):
         self.write_category(
@@ -103,6 +118,8 @@ class ValidateCatalogTests(unittest.TestCase):
                     "maintenance_status": "maybe",
                     "archived": "yes",
                     "successor": ["bad"],
+                    "package": "bad package",
+                    "anti_features": "NonFreeNet",
                 }
             ]
         )
@@ -111,6 +128,8 @@ class ValidateCatalogTests(unittest.TestCase):
         self.assertIn("field 'maintenance_status' must be one of", metadata_errors)
         self.assertIn("field 'archived' must be boolean", metadata_errors)
         self.assertIn("field 'successor' must be text", metadata_errors)
+        self.assertIn("field 'package' must be an Android package ID", metadata_errors)
+        self.assertIn("field 'anti_features' must be a list", metadata_errors)
 
         fixed_apps = [
             {

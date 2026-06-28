@@ -105,28 +105,21 @@ class AddToolTests(unittest.TestCase):
         inputs = [
             "browsers",
             "https://github.com/example/beta",
-            "Béta",
-            "Café browser.",
-            "",
-            "",
-            "",
-            "",
-            "",
-            "",
-            "",
-            "",
-            "",
-            "",
-            "",
-        ]
+            "B\u00e9ta",
+            "Caf\u00e9 browser.",
+        ] + [""] * (
+            len(add.OPTIONAL_URL_FIELDS)
+            + len(add.OPTIONAL_TEXT_FIELDS)
+            + len(add.OPTIONAL_LIST_FIELDS)
+        )
         with quiet_io(), patch("builtins.input", side_effect=inputs):
             add.new_app(self.root, ["browsers"], [], requester=ok_requester)
 
         raw = self.category_file.read_bytes()
-        self.assertIn("Café".encode("utf-8"), raw)
+        self.assertIn("Caf\u00e9".encode("utf-8"), raw)
 
         data = json.loads(raw.decode("utf-8"))
-        self.assertEqual([app["name"] for app in data["apps"]], ["Alpha", "Béta", "Gamma"])
+        self.assertEqual([app["name"] for app in data["apps"]], ["Alpha", "B\u00e9ta", "Gamma"])
 
 
 if __name__ == "__main__":

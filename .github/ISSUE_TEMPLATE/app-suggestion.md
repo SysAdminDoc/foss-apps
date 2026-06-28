@@ -25,8 +25,17 @@ Name the app's open-source license.
 ### source URL
 Link the repository with the source code.
 
+### source host
+Name the source host, for example GitHub, GitLab, Codeberg, or self-hosted Git.
+
 ### install sources
 Link every known install source: F-Droid, IzzyOnDroid, Accrescent, Obtainium-compatible releases, Play Store, or website.
+
+### package IDs
+List the Android package name plus F-Droid or IzzyOnDroid package IDs if they differ.
+
+### anti-features
+List F-Droid or IzzyOnDroid anti-features when present.
 
 ### maintenance notes
 Mention whether the app is actively maintained, stale, archived, deprecated, or replaced by a successor.

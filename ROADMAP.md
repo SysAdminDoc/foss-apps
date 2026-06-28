@@ -2,13 +2,6 @@
 
 ## Research-Driven Additions
 
-- [ ] P1 - Expand app metadata for trust and install-source clarity
-  Why: F-Droid, IzzyOnDroid, Accrescent, and Obtainium expose source/install provenance that this catalog currently collapses into a few optional links.
-  Evidence: https://f-droid.org/docs/Anti-Features/, https://gitlab.com/IzzyOnDroid/repo, https://github.com/ImranR98/Obtainium, https://accrescent.app/
-  Touches: `apps/*.json`, `scripts/build.py`, `README.md`, `categories/*.md`, `CONTRIBUTING.md`
-  Acceptance: App records support package ID, license, F-Droid package, IzzyOnDroid package, Accrescent link, Obtainium-compatible release source, Play link, website, anti-features, and source host without breaking existing entries.
-  Complexity: L
-
 - [ ] P1 - Generate a searchable static catalog page
   Why: The current README/category Markdown is readable but weak for users comparing 116 apps by category, install source, maintenance status, and privacy criteria.
   Evidence: https://alternativeto.net/, https://www.appbrain.com/, https://github.com/offa/android-foss, `README.md`, `categories/*.md`
