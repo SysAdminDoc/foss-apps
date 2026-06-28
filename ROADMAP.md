@@ -2,13 +2,6 @@
 
 ## Research-Driven Additions
 
-- [ ] P0 - Fix interactive add-tool error handling
-  Why: `exit_with_error()` currently does not exit for some fatal validation paths, and broad `except:` blocks hide root causes.
-  Evidence: `scripts/add.py`
-  Touches: `scripts/add.py`, `scripts/validate.py`
-  Acceptance: Duplicate category/source and required-field failures stop with a non-zero exit; link-check exceptions report status or exception class; successful insertions still preserve alphabetical order and UTF-8 JSON.
-  Complexity: S
-
 - [ ] P1 - Add stale, archived, and deprecated app review metadata
   Why: Users need to distinguish maintained replacements from abandoned-but-installable apps, and current pages only render badge URLs without storing review status.
   Evidence: `apps/browsers.json`, generated `categories/*.md`, https://f-droid.org/docs/Build_Metadata_Reference/, https://github.com/offa/android-foss

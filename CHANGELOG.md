@@ -2,6 +2,7 @@
 
 ## Unreleased
 
+- Fixed interactive add-tool failures so fatal validation exits non-zero and link errors report HTTP status or exception class.
 - Updated contributor intake docs, issue prompts, and the add script for split category JSON files and trust/install metadata.
 - Added local catalog validation for required fields, duplicate sources, app sort order, URL shape, and generated Markdown drift.
 - Removed the GitHub Actions content rebuild workflow so generated content is maintained through local builds.
