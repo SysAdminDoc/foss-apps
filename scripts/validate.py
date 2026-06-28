@@ -174,6 +174,13 @@ def validate_generated_output(root, categories):
     if readme.read_text(encoding=ENCODING) != expected_readme:
         errors.append("README.md: generated content drift; run py -3 scripts/build.py")
 
+    catalog = root / "catalog.html"
+    expected_catalog = build.render_catalog(root, categories)
+    if not catalog.exists():
+        errors.append("catalog.html: generated catalog file is missing")
+    elif catalog.read_text(encoding=ENCODING) != expected_catalog:
+        errors.append("catalog.html: generated content drift; run py -3 scripts/build.py")
+
     categories_dir = root / "categories"
     for category in categories:
         md_file = categories_dir / f"{category.stem}.md"

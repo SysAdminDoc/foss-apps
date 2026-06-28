@@ -38,6 +38,7 @@ class ValidateCatalogTests(unittest.TestCase):
     def build_outputs(self):
         categories = build.parse_categories(self.tmp / "apps")
         build.build_readme(self.tmp, categories)
+        build.build_catalog(self.tmp, categories)
         for category in categories:
             build.build_category(category, self.tmp / "categories")
 
@@ -78,6 +79,10 @@ class ValidateCatalogTests(unittest.TestCase):
         self.assertIn("[`[izzyondroid]`]", rendered)
         self.assertIn("[`[accrescent]`]", rendered)
         self.assertIn("[`[obtainium]`]", rendered)
+        catalog = build.render_catalog(self.tmp, [self.tmp / "apps" / "browsers.json"])
+        self.assertIn("catalog-data", catalog)
+        self.assertIn("installSource", catalog)
+        self.assertIn("org.example.alpha", catalog)
 
     def test_reports_required_duplicate_sort_url_and_drift_errors(self):
         self.write_category(

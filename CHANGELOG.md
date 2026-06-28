@@ -2,6 +2,7 @@
 
 ## Unreleased
 
+- Added a generated searchable catalog page with category, install-source, source-host, and sort controls.
 - Expanded app metadata support for package IDs, license, source host, install-source links, store package IDs, and anti-features.
 - Added optional app review metadata for last-reviewed dates, maintenance status, archive/deprecation flags, and successor notes.
 - Fixed interactive add-tool failures so fatal validation exits non-zero and link errors report HTTP status or exception class.

@@ -19,6 +19,8 @@ _I'm not affiliated with these apps, I'm just sharing them because I think they'
 
 **[`SUGGEST A NEW APP`](#suggestions 'SUGGEST A NEW APP')**
 
+**[`SEARCH THE CATALOG`](catalog.html 'SEARCH THE CATALOG')**
+
 **[`Acknowledgments`](#acknowledgments 'Acknowledgments')**
 
 ## Maintainer Checks
@@ -30,7 +32,7 @@ py -3 scripts/validate.py
 py -3 scripts/build.py
 ```
 
-Validation fails on invalid JSON, missing required fields, duplicate source URLs, unsorted app names, invalid URLs, and generated Markdown drift.
+Validation fails on invalid JSON, missing required fields, duplicate source URLs, unsorted app names, invalid URLs, and generated output drift.
 
 ## Table of Contents
 

@@ -2,13 +2,6 @@
 
 ## Research-Driven Additions
 
-- [ ] P1 - Generate a searchable static catalog page
-  Why: The current README/category Markdown is readable but weak for users comparing 116 apps by category, install source, maintenance status, and privacy criteria.
-  Evidence: https://alternativeto.net/, https://www.appbrain.com/, https://github.com/offa/android-foss, `README.md`, `categories/*.md`
-  Touches: `scripts/build.py`, `docs` or generated static assets, `_config.yml`, `apps/*.json`
-  Acceptance: The published static site provides search, category filter, install-source filter, source-host filter, sort by name/status/category, and shareable URLs while keeping Markdown generation intact.
-  Complexity: L
-
 - [ ] P1 - Add local link-health and badge-health reporting
   Why: The catalog depends on external source, install, website, stars, and last-commit URLs, but there is no maintainer report for dead links or badge failures.
   Evidence: `scripts/build.py`, `scripts/add.py`, https://shields.io/, https://docs.github.com/en/rest
