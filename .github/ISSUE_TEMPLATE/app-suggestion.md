@@ -16,6 +16,9 @@ Type the category and category file, for example `Browsers` / `apps/browsers.jso
 ### package name
 Write the Android package name, for example `org.example.app`.
 
+### target SDK
+List the current target SDK when it is published or easy to verify.
+
 ### description
 Describe in short the functionality of the app.
 
@@ -27,6 +30,15 @@ Link the repository with the source code.
 
 ### source host
 Name the source host, for example GitHub, GitLab, Codeberg, or self-hosted Git.
+
+### update source
+State where updates are expected to come from, for example F-Droid, GitHub Releases, Obtainium, Play Store, or the project website.
+
+### signing/source provenance
+Describe signing-key or source-release provenance when known, including whether store builds differ from upstream APKs.
+
+### sideload caveats
+Mention caveats for APK sideloading, Obtainium tracking, signature changes, or store-only releases.
 
 ### install sources
 Link every known install source: F-Droid, IzzyOnDroid, Accrescent, Obtainium-compatible releases, Play Store, or website.

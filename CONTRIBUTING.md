@@ -37,6 +37,11 @@ This document shows you how to get started with your contribution to this projec
     "source_host": "GitHub",
     "fdroid_package": "org.example.app",
     "izzyondroid_package": "org.example.app",
+    "target_sdk": 35,
+    "update_source": "F-Droid and GitHub Releases",
+    "signing_provenance": "F-Droid build signed by F-Droid; upstream APKs are signed by the project.",
+    "source_provenance": "Published release tag matches the source repository.",
+    "sideload_caveats": "Users installing outside F-Droid should verify the signing key or use Obtainium.",
     "fdroid": "https://f-droid.org/packages/org.example.app",
     "izzyondroid": "https://apt.izzysoft.de/fdroid/index/apk/org.example.app",
     "accrescent": "https://accrescent.app/app/org.example.app",
@@ -59,8 +64,11 @@ This document shows you how to get started with your contribution to this projec
 
   - Correct category file, for example `apps/browsers.json`
   - App name and package name
+  - Target SDK when it is published or easy to verify
   - Source repository URL
   - License and source host
+  - Update source and signing/source provenance notes
+  - Sideload caveats for APKs, Obtainium, or stores outside F-Droid/Play
   - Install sources, including F-Droid, IzzyOnDroid, Accrescent, Obtainium-compatible releases, Play Store, or website links when available
   - F-Droid and IzzyOnDroid package IDs when they differ from the Android package name
   - Anti-features when published by the install source

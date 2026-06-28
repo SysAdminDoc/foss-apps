@@ -2,6 +2,7 @@
 
 ## Unreleased
 
+- Added Android platform-readiness metadata for target SDK, update source, signing/source provenance, and sideload caveats.
 - Added generator regression tests for app counts, category ordering, badge URLs, UTF-8 README output, and marker replacement.
 - Improved generated category page accessibility with app headings, descriptive badge alt text, and cleaner mobile-friendly link blocks.
 - Added a local link-health and badge-health report command.

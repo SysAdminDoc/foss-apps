@@ -58,6 +58,11 @@ class ValidateCatalogTests(unittest.TestCase):
                     "fdroid_package": "org.example.alpha",
                     "source_host": "GitHub",
                     "anti_features": ["NonFreeNet"],
+                    "target_sdk": 35,
+                    "update_source": "F-Droid and GitHub Releases",
+                    "signing_provenance": "F-Droid build signed by F-Droid.",
+                    "source_provenance": "Release tag matches source.",
+                    "sideload_caveats": "Use Obtainium when installing outside F-Droid.",
                     "izzyondroid": "https://apt.izzysoft.de/fdroid/index/apk/org.example.alpha",
                     "accrescent": "https://accrescent.app/app/org.example.alpha",
                     "obtainium": "https://github.com/example/alpha/releases",
@@ -79,6 +84,11 @@ class ValidateCatalogTests(unittest.TestCase):
         self.assertIn("license: GPL-3.0-only", rendered)
         self.assertIn("source host: GitHub", rendered)
         self.assertIn("anti-features: NonFreeNet", rendered)
+        self.assertIn("**Android:** target SDK: 35", rendered)
+        self.assertIn("updates: F-Droid and GitHub Releases", rendered)
+        self.assertIn("signing: F-Droid build signed by F-Droid.", rendered)
+        self.assertIn("source: Release tag matches source.", rendered)
+        self.assertIn("sideload: Use Obtainium when installing outside F-Droid.", rendered)
         self.assertIn("[Source repository]", rendered)
         self.assertIn("[IzzyOnDroid]", rendered)
         self.assertIn("[Accrescent]", rendered)
@@ -87,6 +97,8 @@ class ValidateCatalogTests(unittest.TestCase):
         self.assertIn("catalog-data", catalog)
         self.assertIn("installSource", catalog)
         self.assertIn("org.example.alpha", catalog)
+        self.assertIn('"target_sdk": 35', catalog)
+        self.assertIn("F-Droid and GitHub Releases", catalog)
 
     def test_reports_required_duplicate_sort_url_and_drift_errors(self):
         self.write_category(
@@ -128,6 +140,8 @@ class ValidateCatalogTests(unittest.TestCase):
                     "archived": "yes",
                     "successor": ["bad"],
                     "package": "bad package",
+                    "target_sdk": "35",
+                    "update_source": ["bad"],
                     "anti_features": "NonFreeNet",
                 }
             ]
@@ -137,7 +151,9 @@ class ValidateCatalogTests(unittest.TestCase):
         self.assertIn("field 'maintenance_status' must be one of", metadata_errors)
         self.assertIn("field 'archived' must be boolean", metadata_errors)
         self.assertIn("field 'successor' must be text", metadata_errors)
+        self.assertIn("field 'update_source' must be text", metadata_errors)
         self.assertIn("field 'package' must be an Android package ID", metadata_errors)
+        self.assertIn("field 'target_sdk' must be an integer", metadata_errors)
         self.assertIn("field 'anti_features' must be a list", metadata_errors)
 
         fixed_apps = [

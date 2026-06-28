@@ -110,6 +110,7 @@ class AddToolTests(unittest.TestCase):
         ] + [""] * (
             len(add.OPTIONAL_URL_FIELDS)
             + len(add.OPTIONAL_TEXT_FIELDS)
+            + len(add.OPTIONAL_INT_FIELDS)
             + len(add.OPTIONAL_LIST_FIELDS)
         )
         with quiet_io(), patch("builtins.input", side_effect=inputs):

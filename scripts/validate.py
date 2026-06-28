@@ -34,9 +34,14 @@ TEXT_FIELDS = (
     "install_sources",
     "maintenance_notes",
     "privacy_security_notes",
+    "update_source",
+    "signing_provenance",
+    "source_provenance",
+    "sideload_caveats",
 )
 PACKAGE_FIELDS = ("package", "fdroid_package", "izzyondroid_package")
 PACKAGE_RE = re.compile(r"^[A-Za-z][A-Za-z0-9_]*(\.[A-Za-z][A-Za-z0-9_]*)+$")
+INTEGER_RANGES = {"target_sdk": (1, 99)}
 
 
 def _label(path, app=None):
@@ -146,6 +151,21 @@ def validate_category(path, seen_sources):
             if value and not PACKAGE_RE.match(value):
                 errors.append(
                     f"{_label(path, app)}: field '{field}' must be an Android package ID"
+                )
+
+        for field, bounds in INTEGER_RANGES.items():
+            value = app.get(field)
+            if value is None:
+                continue
+            minimum, maximum = bounds
+            if (
+                isinstance(value, bool)
+                or not isinstance(value, int)
+                or value < minimum
+                or value > maximum
+            ):
+                errors.append(
+                    f"{_label(path, app)}: field '{field}' must be an integer from {minimum} to {maximum}"
                 )
 
         anti_features = app.get("anti_features")

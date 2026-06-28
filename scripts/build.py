@@ -211,10 +211,15 @@ CATALOG_TEMPLATE = """<!doctype html>
       if (app.izzyondroid_package) bits.push(`Izzy: ${app.izzyondroid_package}`);
       if (app.anti_features.length) bits.push(`Anti-features: ${app.anti_features.join(', ')}`);
       if (app.successor) bits.push(`Successor: ${app.successor}`);
+      if (app.target_sdk) bits.push(`Target SDK: ${app.target_sdk}`);
+      if (app.update_source) bits.push(`Updates: ${app.update_source}`);
+      if (app.signing_provenance) bits.push(`Signing: ${app.signing_provenance}`);
+      if (app.source_provenance) bits.push(`Source: ${app.source_provenance}`);
+      if (app.sideload_caveats) bits.push(`Sideload: ${app.sideload_caveats}`);
       return bits.length ? bits.map(escapeHtml).join('<br>') : '<span class="tag">No extra metadata</span>';
     }
     function matches(app, query) {
-      const haystack = [app.name, app.description, app.category, app.source, app.source_host, app.package, app.license, app.successor, app.anti_features.join(' ')].join(' ').toLowerCase();
+      const haystack = [app.name, app.description, app.category, app.source, app.source_host, app.package, app.license, app.successor, app.update_source, app.signing_provenance, app.source_provenance, app.sideload_caveats, app.anti_features.join(' ')].join(' ').toLowerCase();
       return !query || haystack.includes(query);
     }
     function render() {
@@ -381,6 +386,34 @@ def trust_metadata(app):
     return "**Trust:** " + " | ".join(parts)
 
 
+def platform_metadata(app):
+    parts = []
+    target_sdk = app.get("target_sdk")
+    if target_sdk:
+        parts.append(f"target SDK: {target_sdk}")
+
+    update_source = app.get("update_source")
+    if update_source:
+        parts.append(f"updates: {update_source}")
+
+    signing_provenance = app.get("signing_provenance")
+    if signing_provenance:
+        parts.append(f"signing: {signing_provenance}")
+
+    source_provenance = app.get("source_provenance")
+    if source_provenance:
+        parts.append(f"source: {source_provenance}")
+
+    sideload_caveats = app.get("sideload_caveats")
+    if sideload_caveats:
+        parts.append(f"sideload: {sideload_caveats}")
+
+    if not parts:
+        return ""
+
+    return "**Android:** " + " | ".join(parts)
+
+
 def install_links(app):
     labels = (
         ("source", "Source repository"),
@@ -433,6 +466,9 @@ def render_category(cat):
         trust = trust_metadata(app)
         if trust:
             app_lines.extend(["", trust])
+        platform = platform_metadata(app)
+        if platform:
+            app_lines.extend(["", platform])
         app_lines.extend(
             [
                 "",
@@ -532,6 +568,11 @@ def normalized_catalog(categories):
                     "izzyondroid_package": app.get("izzyondroid_package", ""),
                     "anti_features": app.get("anti_features", []),
                     "successor": app.get("successor", ""),
+                    "target_sdk": app.get("target_sdk", ""),
+                    "update_source": app.get("update_source", ""),
+                    "signing_provenance": app.get("signing_provenance", ""),
+                    "source_provenance": app.get("source_provenance", ""),
+                    "sideload_caveats": app.get("sideload_caveats", ""),
                 }
             )
     return records

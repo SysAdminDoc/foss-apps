@@ -27,7 +27,12 @@ OPTIONAL_TEXT_FIELDS = [
     "install_sources",
     "maintenance_notes",
     "privacy_security_notes",
+    "update_source",
+    "signing_provenance",
+    "source_provenance",
+    "sideload_caveats",
 ]
+OPTIONAL_INT_FIELDS = ["target_sdk"]
 OPTIONAL_LIST_FIELDS = ["anti_features"]
 
 
@@ -182,6 +187,14 @@ def new_app(root, category_names, sources, requester=request_status):
         value = input(f"{field}: ").strip()
         if value:
             new_app_record[field] = value
+
+    for field in OPTIONAL_INT_FIELDS:
+        value = input(f"{field}: ").strip()
+        if value:
+            try:
+                new_app_record[field] = int(value)
+            except ValueError:
+                exit_with_error(f"ERROR: {field} must be an integer")
 
     for field in OPTIONAL_LIST_FIELDS:
         value = input(f"{field} (comma-separated): ").strip()
