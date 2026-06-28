@@ -20,6 +20,10 @@
       "source": "https://github.com/UnevenSoftware/LeafPic",
       "name": "LeafPic",
       "description": "A fluid, material-designed alternative gallery, it also is ad-free and open source under GPLv3 license. It doesn't miss any of the main features of a stock gallery. NO LONGER MAINTAINED.",
+      "last_reviewed": "2026-06-28",
+      "maintenance_status": "stale",
+      "deprecated": true,
+      "successor": "Review a maintained gallery replacement before recommending.",
       "fdroid": "https://f-droid.org/app/org.horaapps.leafpic",
       "playstore": "https://play.google.com/store/apps/details?id=org.horaapps.leafpic"
     },

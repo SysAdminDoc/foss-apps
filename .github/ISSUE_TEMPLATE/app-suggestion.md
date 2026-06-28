@@ -31,5 +31,11 @@ Link every known install source: F-Droid, IzzyOnDroid, Accrescent, Obtainium-com
 ### maintenance notes
 Mention whether the app is actively maintained, stale, archived, deprecated, or replaced by a successor.
 
+### last reviewed / successor
+Provide the last reviewed date if known and name any maintained successor or replacement.
+
+### archive/deprecation flags
+State whether the app is archived or deprecated.
+
 ### privacy/security caveats
 List anti-features, trackers, unusual permissions, required network services, or other privacy/security notes.

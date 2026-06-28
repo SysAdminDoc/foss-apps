@@ -40,6 +40,11 @@ This document shows you how to get started with your contribution to this projec
     "obtainium": "https://github.com/example/app/releases",
     "playstore": "https://play.google.com/store/apps/details?id=org.example.app",
     "website": "https://example.org",
+    "last_reviewed": "2026-06-28",
+    "maintenance_status": "active",
+    "archived": false,
+    "deprecated": false,
+    "successor": "Name a maintained successor when the original app is archived or deprecated.",
     "install_sources": "F-Droid and GitHub releases are maintained by the upstream project.",
     "maintenance_notes": "Actively maintained; latest release within the last year.",
     "privacy_security_notes": "No trackers known; document any anti-features or network caveats."
@@ -54,6 +59,7 @@ This document shows you how to get started with your contribution to this projec
   - License
   - Install sources, including F-Droid, IzzyOnDroid, Accrescent, Obtainium-compatible releases, Play Store, or website links when available
   - Maintenance status or archive/deprecation notes
+  - Last reviewed date, archive/deprecation flags, and successor/replacement notes when relevant
   - Privacy/security caveats, including anti-features, trackers, unusual permissions, or network-service dependencies
 
 - Run the local checks before committing:

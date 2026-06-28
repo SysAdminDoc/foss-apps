@@ -17,6 +17,8 @@
 
     ![Stars](https://badgen.net/github/stars/UnevenSoftware/LeafPic) ![last commit](https://img.shields.io/github/last-commit/UnevenSoftware/LeafPic)
 
+    _Review:_ status: stale | reviewed: 2026-06-28 | flags: deprecated | successor: Review a maintained gallery replacement before recommending.
+
     [`[source]`](https://github.com/UnevenSoftware/LeafPic "source") [`[f-droid]`](https://f-droid.org/app/org.horaapps.leafpic "f-droid") [`[playstore]`](https://play.google.com/store/apps/details?id=org.horaapps.leafpic "playstore") 
 
 - **Librera Reader**: An e-book reader for Android devices; it supports the following formats: PDF, EPUB, EPUB3, MOBI, DjVu, FB2, TXT, RTF, AZW, AZW3, HTML, CBZ, CBR, DOC, DOCX, and OPDS Catalogs.

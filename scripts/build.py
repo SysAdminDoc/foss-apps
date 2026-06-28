@@ -47,6 +47,34 @@ def badge_links(app):
     )
 
 
+def review_metadata(app):
+    parts = []
+    status = app.get("maintenance_status")
+    if status:
+        parts.append(f"status: {status}")
+
+    last_reviewed = app.get("last_reviewed")
+    if last_reviewed:
+        parts.append(f"reviewed: {last_reviewed}")
+
+    flags = []
+    if app.get("archived"):
+        flags.append("archived")
+    if app.get("deprecated"):
+        flags.append("deprecated")
+    if flags:
+        parts.append("flags: " + ", ".join(flags))
+
+    successor = app.get("successor")
+    if successor:
+        parts.append(f"successor: {successor}")
+
+    if not parts:
+        return ""
+
+    return "    _Review:_ " + " | ".join(parts)
+
+
 def render_category(cat):
     cat_json = load_category(cat)
     lines = [
@@ -72,14 +100,22 @@ def render_category(cat):
         )
         link_website = f'[`[website]`]({website} "website")' if website else ""
 
-        lines.append(
-            f"""
-- **{name}**: {description}
-
-    {badge_stars} {badge_commit}
-
-    {link_source} {link_fdroid} {link_playstore} {link_website}"""
+        app_lines = [
+            "",
+            f"- **{name}**: {description}",
+            "",
+            f"    {badge_stars} {badge_commit}",
+        ]
+        review = review_metadata(app)
+        if review:
+            app_lines.extend(["", review])
+        app_lines.extend(
+            [
+                "",
+                f"    {link_source} {link_fdroid} {link_playstore} {link_website}",
+            ]
         )
+        lines.append("\n".join(app_lines))
 
     return "\n".join(lines)
 

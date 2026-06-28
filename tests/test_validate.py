@@ -48,12 +48,21 @@ class ValidateCatalogTests(unittest.TestCase):
                     "name": "Alpha",
                     "description": "A browser.",
                     "source": "https://github.com/example/alpha",
+                    "last_reviewed": "2026-06-28",
+                    "maintenance_status": "stale",
+                    "deprecated": True,
+                    "successor": "Review a maintained replacement.",
                 }
             ]
         )
         self.build_outputs()
 
         self.assertEqual(validate.validate_catalog(self.tmp), [])
+        rendered = build.render_category(self.tmp / "apps" / "browsers.json")
+        self.assertIn("_Review:_ status: stale", rendered)
+        self.assertIn("reviewed: 2026-06-28", rendered)
+        self.assertIn("flags: deprecated", rendered)
+        self.assertIn("successor: Review a maintained replacement.", rendered)
 
     def test_reports_required_duplicate_sort_url_and_drift_errors(self):
         self.write_category(
@@ -83,6 +92,25 @@ class ValidateCatalogTests(unittest.TestCase):
         self.assertIn("field 'website' must be an HTTP(S) URL", joined)
         self.assertIn("duplicate source URL", joined)
         self.assertIn("apps must be sorted alphabetically", joined)
+
+        self.write_category(
+            [
+                {
+                    "name": "Alpha",
+                    "description": "A browser.",
+                    "source": "https://github.com/example/alpha",
+                    "last_reviewed": "28-06-2026",
+                    "maintenance_status": "maybe",
+                    "archived": "yes",
+                    "successor": ["bad"],
+                }
+            ]
+        )
+        metadata_errors = "\n".join(validate.validate_catalog(self.tmp))
+        self.assertIn("field 'last_reviewed' must be an ISO date", metadata_errors)
+        self.assertIn("field 'maintenance_status' must be one of", metadata_errors)
+        self.assertIn("field 'archived' must be boolean", metadata_errors)
+        self.assertIn("field 'successor' must be text", metadata_errors)
 
         fixed_apps = [
             {

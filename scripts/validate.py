@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
 import argparse
+import datetime as dt
 import json
 import pathlib
 import sys
@@ -22,6 +23,9 @@ URL_FIELDS = (
     "stars_link",
     "last_commit_link",
 )
+MAINTENANCE_STATUSES = {"active", "stale", "archived", "deprecated", "unknown"}
+BOOLEAN_FIELDS = ("archived", "deprecated")
+TEXT_FIELDS = ("successor", "review_notes")
 
 
 def _label(path, app=None):
@@ -34,6 +38,14 @@ def _label(path, app=None):
 def _is_http_url(value):
     parsed = urlparse(value)
     return parsed.scheme in {"http", "https"} and bool(parsed.netloc)
+
+
+def _is_iso_date(value):
+    try:
+        dt.date.fromisoformat(value)
+    except ValueError:
+        return False
+    return True
 
 
 def load_json(path, errors):
@@ -96,6 +108,27 @@ def validate_category(path, seen_sources):
                 errors.append(
                     f"{_label(path, app)}: field '{field}' must be an HTTP(S) URL: {value}"
                 )
+
+        last_reviewed = app.get("last_reviewed")
+        if last_reviewed and not _is_iso_date(last_reviewed):
+            errors.append(
+                f"{_label(path, app)}: field 'last_reviewed' must be an ISO date: {last_reviewed}"
+            )
+
+        status = app.get("maintenance_status")
+        if status and status not in MAINTENANCE_STATUSES:
+            allowed = ", ".join(sorted(MAINTENANCE_STATUSES))
+            errors.append(
+                f"{_label(path, app)}: field 'maintenance_status' must be one of: {allowed}"
+            )
+
+        for field in BOOLEAN_FIELDS:
+            if field in app and not isinstance(app[field], bool):
+                errors.append(f"{_label(path, app)}: field '{field}' must be boolean")
+
+        for field in TEXT_FIELDS:
+            if field in app and not isinstance(app[field], str):
+                errors.append(f"{_label(path, app)}: field '{field}' must be text")
 
     sorted_names = sorted(names, key=str.lower)
     if names != sorted_names:

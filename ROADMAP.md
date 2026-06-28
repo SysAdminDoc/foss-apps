@@ -2,13 +2,6 @@
 
 ## Research-Driven Additions
 
-- [ ] P1 - Add stale, archived, and deprecated app review metadata
-  Why: Users need to distinguish maintained replacements from abandoned-but-installable apps, and current pages only render badge URLs without storing review status.
-  Evidence: `apps/browsers.json`, generated `categories/*.md`, https://f-droid.org/docs/Build_Metadata_Reference/, https://github.com/offa/android-foss
-  Touches: `apps/*.json`, `scripts/build.py`, `scripts/validate.py`, `categories/*.md`
-  Acceptance: Each app can record last reviewed date, maintenance status, replacement/successor notes, and archive/deprecation flags; generated pages surface those fields consistently.
-  Complexity: M
-
 - [ ] P1 - Expand app metadata for trust and install-source clarity
   Why: F-Droid, IzzyOnDroid, Accrescent, and Obtainium expose source/install provenance that this catalog currently collapses into a few optional links.
   Evidence: https://f-droid.org/docs/Anti-Features/, https://gitlab.com/IzzyOnDroid/repo, https://github.com/ImranR98/Obtainium, https://accrescent.app/
